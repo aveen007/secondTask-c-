@@ -1,30 +1,30 @@
 # secondTask c++
-A normal constructor is called when we initialize new Number objects
+Нормальный конструктор вызывается, когда мы инициализируем новые объекты Number
 ```c++
     Number n1(1, "One");
     Number n2(2, "two");
 ```
-an assignment copy operator is called when the right side of the assignment operation is an lvalue (stored in the memory and not temporary)
+Оператор копирования присваивания вызывается, когда правой стороной операции присваивания является lvalue (хранящийся в памяти, а не временный)
 ```c++
     n1 = n2;
 ```
-an assignment move operator is called when the right side of the assignment operation is a temporary rvalue that is about to be destroyed
+Оператор перемещения присваивания вызывается, когда правой стороной операции присваивания является временное rvalue, которое собирается уничтожить
 ```c++
     Number n3;
     n3= Number(2,"Two");
 ```
-a copy constructor is being called when pussing elements into a vector in the function processVector, that is because a copy of the class member being pushed is created when we execute the pushback instruction.
+Конструктор копирования вызывается, когда элементы добавляются в вектор в функции processVector, потому что создается копия члена класса, который добавляется, когда мы выполняем инструкцию pushback.
 ```c++
         Number num = Number(a, b);
         numbers.push_back(num);
 ```
-a move constructor is being called when pushing there are more than one element in the vector being pushed back because the pushback function probably doesn't fine enough space inside the current vector to allocate a new element so a new copy is created with a bigger size, and the old elements are being moved to the new memory
+Конструктор перемещения вызывается, когда добавляется более одного элемента в вектор, так как функция pushback, вероятно, не находит достаточно места в текущем векторе для выделения нового элемента, и поэтому создается новая копия с большими размерами, и старые элементы перемещаются в новую память.
 ```c++
         Number num = Number(a, b);
         numbers.push_back(num);
 ```
-the destructor is being called when we delete the class members, or every time a temporary class member is destroyed.
-The function used for processing vectors
+Деструктор вызывается, когда мы удаляем члены класса или каждый раз, когда временные члены класса уничтожаются.
+Функция, используемая для обработки векторов
 ```c++
     void procesVector(std::vector<Number> numbers, int len) {
     if (len > 10 || len < 5) return;
@@ -43,7 +43,7 @@ The function used for processing vectors
 
 }
 ```
-The function used for processing vectors
+Функция, используемая для обработки списков
 ```c++
 void procesList(std::list<Number> numbers, int len) {
     if (len > 10 || len < 5) return;
@@ -61,7 +61,7 @@ void procesList(std::list<Number> numbers, int len) {
 
 }
 ```
-passing class members and returning them, both by reference or not
+Передача членов класса и возврат их, как по ссылке, так и без
 ```c++
 Number doesNothing(Number num) {
     return num;
@@ -71,11 +71,11 @@ Number& doesNothin2(Number & num) {
     return num;
 }
 ```
-** for the definitions please see Number.h
-** for implementation please see Number.cpp
-** for the file using the Number class, please see secondTaskc++.cpp
+** для определения, пожалуйста, смотрите Number.h
+** для реализации, пожалуйста, смотрите Number.cpp
+** для файла, использующего класс Number, пожалуйста, смотрите secondTaskc++.cpp
 
-## console output
+## консольный вывод
 ```none
 Normal constructor
 Normal constructor
@@ -163,6 +163,7 @@ destructor
 destructor
 
 D:\secondTask c++\x64\Debug\secondTask c++.exe (process 17376) exited with code 0.
-To automatically close the console when debugging stops, enable Tools->Options->Debugging->Automatically close the console when debugging stops.
-Press any key to close this window . . .
+Чтобы автоматически закрыть консоль при остановке отладки, включите Tools->Options->Debugging->Automatically close the console when debugging stops.
+Нажмите любую клавишу, чтобы закрыть это окно . . .
 ```
+
