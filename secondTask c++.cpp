@@ -6,28 +6,27 @@
 #include <iostream>
 #include<list>
 #include "Number.h"
-Number doesNothing(Number num) {
-    return num;
+Number add(Number num1, Number num2) {
+    return num1+num2;
 }
-Number& doesNothin2(Number & num) {
+Number& addByreference(Number & num1, Number &num2) {
 
-    return num;
+    return num1+num2;
 }
 void print(Number n1) {
-    std::cout << n1.getNumberName() << std::endl;
+    std::cout <<n1.getNumberValue() << " " << n1.getNumberName() << std::endl;
 
 }
 void print2(Number *n1) {
-    std::cout << n1->getNumberName() << std::endl;
+    std::cout << n1->getNumberValue() << " " << n1->getNumberName() << std::endl;
 
 }
 void procesVector(std::vector<Number> numbers, int len) {
     if (len > 10 || len < 5) return;
     for (int i = 0; i < len; i++) {
         int a;
-        std::string b;
-        std::cin >> a >> b;
-        Number num = Number(a, b);
+        std::cin >> a ;
+        Number num = Number(a);
 
         numbers.push_back(num);
     }
@@ -41,9 +40,8 @@ void procesList(std::list<Number> numbers, int len) {
     if (len > 10 || len < 5) return;
     for (int i = 0; i < len; i++) {
         int a;
-        std::string b;
-        std::cin >> a >> b;
-        Number num = Number(a, b);
+        std::cin >> a ;
+        Number num = Number(a);
         numbers.push_back(num);
     }
     for (Number num : numbers) {
@@ -52,16 +50,16 @@ void procesList(std::list<Number> numbers, int len) {
     }
 
 }
+
 int main()
 {
     // static class instance 
-    Number n1(1, "One");
-    Number n2(2, "two");
+    Number n1(1);
+    Number n2(2);
     n1 = n2;
-    //n1 = &n2;
+    print(add(n1,n2));
     // dynamci class instance 
-    Number* n3 = new Number(2, 
-        "Two");
+    Number* n3 = new Number(2);
     print(n1);
     print2(n3);
     delete n3;

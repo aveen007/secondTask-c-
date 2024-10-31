@@ -10,7 +10,7 @@ public:
 
 	Number();
 	// normal constructor
-	Number(int number_value, const std::string &number_name);
+	Number(int number_value);
 	// move contstructor
 	Number(Number && Other) noexcept;
 	// copy constructor 
@@ -20,6 +20,11 @@ public:
 	// assignment move operator 
 
 	Number& operator = (const Number&& number) noexcept;
+	// addition copy operator 
+	Number& operator + (const Number& number);
+	// addition move operator 
+
+	Number& operator +(const Number&& number) noexcept;
 
 	//Destructor
 	~Number();
